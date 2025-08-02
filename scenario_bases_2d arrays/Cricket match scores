@@ -1,0 +1,37 @@
+// CH.SC.U4CSE24027
+#include <stdio.h>
+//Cricket match total score
+int main() {
+    int match[5][11], i, j; //declaring variables and arrays
+    int total[5] = {0};
+    printf("Enter scores of 11 players for each match: \n");
+    for (i = 0; i < 5; i++) { //for loop for input
+        printf("Match %d: ", i + 1);
+        for (j = 0; j < 11; j++) {
+            scanf("%d", &match[i][j]);
+            total[i] += match[i][j]; //calculating total
+        }
+    }
+    printf("\nScores of 11 players in each match:\n"); //display
+    for (i = 0; i < 5; i++) {
+        printf("Match %d: ", i + 1);
+        for (j = 0; j < 11; j++) {
+            printf("%d ", match[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\nTotal scores of each match:\n");
+    for (i = 0; i < 5; i++) {
+        printf("Match %d Total: %d\n", i + 1, total[i]);
+    }
+    int max_total = total[0]; 
+    int max = 0;
+    for (j = 1; j < 5; j++) {
+        if (total[j] > max_total) {
+            max_total = total[j];
+            max = j;
+        }
+    }
+    printf("\nHIGHEST TOTAL SCORE: MATCH %d: WITH %d\n", max + 1, max_total);
+    return 0;
+}
